@@ -12,8 +12,8 @@ for X = -10000, 10000, 512 do
  
                 P.CFrame = CFrame.new(X,0,Z)
  
-                P.BrickColor = BrickColor.Blue()
-                P.Material = Enum.Material.SmoothPlastic
+                P.BrickColor = BrickColor.Green()
+                P.Material = Enum.Material.Grass
                 P.Parent = game.Workspace
 
 
