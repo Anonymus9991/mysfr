@@ -1,23 +1,16 @@
-for X = -10000, 10000, 512 do
- 
-        for Z = -10000, 10000, 512 do
- 
-                local P = Instance.new("Part")
- 
-                P.Anchored = true
- 
-                P.Locked = true
- 
-                P.Size = Vector3.new(512,0,512)       
- 
-                P.CFrame = CFrame.new(X,0,Z)
- 
-                P.BrickColor = BrickColor.Green()
-                P.Material = Enum.Material.Grass
-                P.Parent = game.Workspace
+local player = game.Players.LocalPlayer
+local character = player.Character or player.CharacterAdded:Wait()
+local humanoidRootPart = character:WaitForChild("HumanoidRootPart")
 
+local teleportDistance = 10  -- How far to teleport each time (you can adjust this)
+local teleportSpeed = 0.1  -- Time between each teleport (lower = faster)
 
- 
-        end
- 
+local startPosition = humanoidRootPart.Position
+
+while true do
+    humanoidRootPart.CFrame = CFrame.new(startPosition + Vector3.new(teleportDistance, 0, 0))
+    wait(teleportSpeed)
+
+    humanoidRootPart.CFrame = CFrame.new(startPosition - Vector3.new(teleportDistance, 0, 0))
+    wait(teleportSpeed)
 end
